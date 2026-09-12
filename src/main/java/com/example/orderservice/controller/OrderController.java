@@ -1,9 +1,14 @@
 package com.example.orderservice.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.orderservice.dto.OrderRequest;
+import com.example.orderservice.service.OrderService;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/order")
 public class OrderController {
+
+    private OrderService orderService;
+
 }

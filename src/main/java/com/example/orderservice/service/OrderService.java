@@ -13,7 +13,7 @@ import java.util.UUID;
 
 @org.springframework.stereotype.Service
 @RequiredArgsConstructor
-public class Service {
+public class OrderService {
     private final OrderRepository orderRepository;
     public void placeOrder(OrderRequest orderRequest){
         Order order = new Order();
@@ -21,6 +21,8 @@ public class Service {
 
         List<OrderLineItems> orderLineItems = orderRequest.getOrderLineDtoList().stream().map(this::mapToDto).toList();
         order.setOrderLineItemsList(orderLineItems);
+
+        orderRepository.save(order);
     }
 
 
